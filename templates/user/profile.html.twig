@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %}User profile {% endblock %}
+
+{% block content %}
+    <div class="container-md bg-dark mt-5">zz
+        <div class="display-4 text-center text-white">{{ app.user.email }}</div>
+        {% for role in app.user.roles %}
+        <p class="lead text-white">{{ role }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

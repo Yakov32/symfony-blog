@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+
+{% block content %}
+    <div class="container-md bg-dark mt-5">
+        <div class="display-4 text-center text-white">{{ article.title }}</div>
+        <div class="lead text-white">{{ article.text }}</div>
+        <div class="lead text-white fa-s5 text-right">Category:{{ article.category }}</div>
+        <div class="container bg-primary mb-2 text-center">COMMENTS</div>
+
+        {% if app.user %}
+            <form>
+                <div class="form-group">
+                    <label for="FormControlTextarea1" class="text-light">Add comment</label>
+                    <textarea class="form-control" id="FormControlTextarea1" rows="3"></textarea>
+                </div>
+            </form>
+        {% endif %}
+        {% for comment in comments %}
+            <div class="media">
+                <img src="/images/user.png" class="mr-3 border" alt="..." width="=45" height="50">
+                <div class="media-body">
+                    <h5 class="mt-0">{{ comment.user }}</h5>
+                     <p class="">{{ comment }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
